@@ -13,6 +13,10 @@
                  [ring/ring-defaults "0.3.2"]]
   :plugins [[lein-ring "0.12.4"]]
   :ring {:handler chroma-bot.handler/app}
-  :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [ring/ring-mock "0.3.2"]]}})
+  :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                                  [ring/ring-mock "0.3.2"]]}
+
+             :uberjar {:aot :all
+                       :omit-source true
+                       :main chroma-bot.main
+                       :uberjar-name "chroma-bot.jar"}})
